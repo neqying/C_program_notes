@@ -1,0 +1,910 @@
+# C语言学习
+
+## 一.前提知识篇
+
+### 1.代码的处理
+* 预处理：展开头文件 外置函数
+* 编译：需要一款编译器去处理翻译，比如g++，gcc，cmake
+* 汇编：转换二进制机器语言
+* 链接：生成可执行文件 
+### 2.vscode+cmake环境的配置
+CMakeLists.txt
+> cmake_minum_required(VERSION 3.0)
+> 
+> project（工程name）
+>
+> set(CXX_STANDARD 20)
+>
+> aux_source_directory(. src)//当前目录设置变量src
+> 
+> add_executable(可执行文件 ${src}) //后面可接多个以及外置函数
+
+右键配置生成即可。
+如果出错，需要在cmake处删除曾经的配置。
+
+## 二.入门基础语法
+### 输出HelloWorld!
+```
+#include<stdio.h>
+
+int main()
+{
+    printf("HelloWorld!");
+    return 0;
+}
+```
+这是最简单的C语言程序，由头文件+主函数构成。
+* 头文件：stdio.h 
+* 主函数：int main（参数）
+* printf:内置函数 print+format
+* return:函数的返回值
+* {}：内部
+
+函数实现加法运算。
+```#include <stdio.h>
+int add(int a, int b)
+{
+    return a + b;
+}
+int main()
+{
+    int result1, result2;
+    result1 = add(2, 5);
+    result2 = add(260, 1);
+    printf("result1=%d,result2=%d\n", result1, result2);
+    return 0;
+}
+```
+### 整数类型 %d
+  不想用最高为位当作符号+-：unsigned int
+  查找范围 sizeof(int)
+  * short 
+  * int
+  * long  
+  * long long
+
+### 浮点类型 %f
+* float 有误差 保证前6位有效数字准确
+* double 双精度 
+### tip
+* 关键字： sizeof int long char unsiged等这些不可再被定义
+* 标识符：变量名 函数名需要声明或定义 首为_或字母(不可数字以及符号)
+### 字符内型  %c
+* 定义符号常量：头文件下定义，#define price 3
+* ASCII A 65 a 97
+
+### 占位符(转换规范)
+* %d  char short 转换int内型_有符号
+* %u  unsigned char /unsigned short 转化unsigned_无符号
+* %c char/short/int数值转换输出ASCII字母
+* %e %E 科学记数法
+* %o 无符号整型转为8进制输出
+* %x/X 无符号整型转为16进制输出
+  ### 占位符
+  * long %ld
+  * long long %lld
+  * %.4d %.4f
+  
+
+### 算术运算符
+```
+#include <stdio.h>
+int main()
+{
+    int a = 10;
+    int b = 10;
+    
+    printf("%d %d\n", ++a, --b);
+    printf("%d %d\n", a, b);
+
+    int c = 10;
+    int d = 10;
+    printf("%d %d\n", c++, d--);
+    printf("%d %d\n", c, d);
+
+    return 0;
+}
+```
+内型级别转换，表达式强转（double）。
+
+### 运算符的优先级
+|标记|优先级|
+|-|-|
+|++||
+|！||
+|+-||
+|*/%||
+|+-||
+|<>||
+|==!=||
+|&&||
+|\|\||
+|=|
+
+### 结构流程
+* 分支流程
+```
+#include <stdio.h>
+int main()
+{
+    int a;
+    scanf("%d", &a);
+    if (a >= 2 && a <= 10)
+        printf("%s", "In");
+    else if (a < 2)
+        printf("%s", "Left");
+    else
+        printf("%s", "Right");
+        
+    return 0;
+}
+```
+* 三元运算符
+> 测试条件？表达式1：表达式2
+
+* 循环流程
+```
+#include <stdio.h>
+int main()
+{
+    int sum=0;
+    for(int i=1;i<=100;i++)
+    \\可使用逗号运算
+    {
+        sum=sum+i;
+    }
+    printf("%d",sum);
+    return 0;
+}
+```
+```
+#include <stdio.h>
+int main()
+{
+    int sum=0;
+    int i=1;
+    while(i<=100)
+    {
+        sum=sum+i;
+        i++;
+    }
+    printf("%d",sum);
+    return 0;
+}
+``` 
+  * for 中使用continue，立即更新计数器，再进入循环；
+  * for 中使用break，将直接跳出循环，不会更新计数器。
+  
+### 多重选择
+```
+int b;
+    scanf("%d", &b);
+    switch (b)
+    {
+
+    case 80:
+        printf("a");
+        break;
+    case 8:
+        printf("2");
+        break;
+    default:
+        printf("1");
+       
+    }
+    return 0;
+```
+## 三.数组与函数
+数组：类型相同 连续地址的数据集合
+
+声明：类型 数组名[数量] =
+
+访问数组：数组名[] 从0开始
+
+memcpy(目标数组，原始数组，sizeof（目标数组)大小;
+使用头文件#include<memory.h>
+
+多维数组类似
+
+字符串=字符数组char str[]
+* 注：字符数组是单纯字母组合，而字符串的末尾一定有\0
+
+访问方法：
+* printf(str);
+* printf("%s",str);
+* 注意数组长度\0
+
+测量字符串长度
+```
+char str[20]="HelloWorld";
+    int len=0;
+    while(str[len]!='\0')
+    {
+        len++;
+    }
+    printf("%d",len);
+```
+或者 关键字strlen
+* strlen 接受一个字符串
+* 返回值为字符串长度
+* 需要头文件 string.h
+
+修改字符串内容：
+* str[i]=str[i]-32
+* 转ASCII
+```
+char str[20] = "shbscbsjbcjs";
+    for(int i=0;i<strlen(str);i++)
+    {
+        str[i]=str[i]-32;
+    }
+    printf(str);
+```
+
+输入字符
+
+char str[20]; scanf("%s",str)
+
+默认补\0
+
+
+### 两个老朋友：
+* putchar('A');输出单个字符
+* char c; c=getchar();输入单个字符
+```
+char c[] = "HelloWorld";
+    int i = 0;
+    while (c[i] != '\0')
+    {
+        putchar(c[i++]);
+    }
+```
+
+其中putchar与getchar都会涉及到缓存区的问题。
+
+### 不同系统的休眠状态
+* windows：#incliude<windows.h>+sleep(500) 其中500是时间毫秒  直接刷新
+* Linuxu：#include<unistd.h>+usleep(1000*500)表示也是500毫秒
+
+### 行缓存与完全缓存
+* 行缓存：遇到\n 刷新
+* 完全缓存：全部弄好enter才开始刷新
+
+### 不需要缓存的输入
+* _getch()直接写入 需要putchar
+* _getche()直接写入，直接输出
+* 需要头文件#include<conio.h>
+
+### 缓存区
+```
+    char a;
+    a=getchar();
+    //getchar();
+    printf("%d\n",a);
+    a=getchar();
+    printf("%d",a);
+```
+
+### 函数递归
+```
+int func(int a)
+{
+    if (a == 0 || a == 1)
+    return 1;
+    else
+    return a*func(a-1);
+
+}
+int main()
+{
+    printf("%d",func(5));
+    return 0;
+}
+```
+## 四.指针
+### 前置知识
+#### CPU的组成
+* 算术逻辑单元：对数据执行运算
+* 控制单元：协调机器活动电路
+* 寄存器组：用于临时储存数据（少量）
+* 注：数据存储在内存中
+
+#### 内存地址：数据对象的首地址+储存空间的大小
+  计算机记录8个晶体管的开关状态表示一个二进制的数，这八个开关归结在一起（一个房间），大小记作一个字节，每一个这样的房间都有唯一的门牌号——内存地址。
+
+  而不同的数据类型占用大小是不一样的。char占1,int占4...举个简单的例子：int a=4；意味着a的数据储存占了4个字节，即4个房间，当然这四间房间一定是连续的，怎么在茫茫内存找到a了？4间连续的房间号码，高效的表示：首房间号牌+内存大小。不然long long类型不得报16间房号。
+
+### 指针数据类型
+int n;
+类型 pn=&n;获取数据对象首地址和需要的储存空间大小。
+
+这类型定义为指针类型，表示为int* char*
+指针类型的值是目标数据对象的首地址
+
+pn就是指向n的指针，而运算符*可以打开房门，即\*指针，换取数据。
+### 指针类型计算
+* sizeof(目标数据对象)被称作步长
+* 指针类型+n后，其首地址向后移动n*步长个字节
+
+### 指针访问数组元素
+```
+int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+    int*p=&arr[0];
+    for(int i=0;i<10;i++)
+    {
+        printf("%d\n",*(p+i));
+    }
+```
+### 获取数组首地址的两种方式
+
+```
+ int arr[3]={111,222,333};
+    printf("%u\n",arr);
+    printf("%u\n",&arr[0]);
+```
+**数组名本身是不是指针类型？** 非强转可赋值
+```
+int arr[3]={111,222,333};
+    int *p=&arr[0];
+    printf("%u\n",arr);
+    printf("%u\n",&arr[0]);
+    printf("%d %d\n",sizeof(arr),sizeof(p));
+    printf("%d",sizeof(arr+1));
+```
+显然不是的。
+
+数组名出现在表达式中数组名将会转换为指向第一个数组元素的指针。//sizeof中为数据类型的数组
+
+```
+int arr[3]={111,222,333};
+    int*p=arr;
+    printf("%d\n",arr[1]);
+    printf("%d\n",1[arr]);
+    printf("%d",*(p+1));
+```
+下标运算符最终会展开为指针形式
+
+1[arr] ==*(1+arr)
+
+arr[1]==*(arr+1)
+
+
+ ### 指针传递——交换函数
+ ```
+ void swap(int*x,int*y)
+{
+    int temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+
+}
+```
+> int n; void*p=&n;
+> 
+> 指针类型丢弃，仅保留首地址
+> 
+> *p，p+1无法操作
+>
+> 任意类型的指针都可以直接赋值。
+
+### 二级指针
+```
+int arr1[5]={1,2,3,4,5};
+    int arr2[5]={11,22,33,44,55};
+    int arr3[5]={111,222,333,444,555};
+    
+    int*ptoarr[3]={arr1,arr2,arr3};
+    for(int i=0;i<3;i++)
+    {
+        int**p=ptoarr+i;
+        for(int j=0;j<5;j++)
+        {
+            printf("%d ",*(*p+j));
+
+        }
+        printf("\n");
+    }
+```
+```
+#include <stdio.h>
+int *func(void)
+{
+    int n = 1000;
+    return &n;
+}
+int main()
+{
+    int *p = func();
+    printf("%d", *p);
+    return 0;
+}
+```
+上面代码编译不通过。
+
+变量n在函数结束后被系统回收，因此失效。
+
+函数返回后，函数内变量没有存在的意义。
+
+当然加上static可以保住函数内的数据不被清除。
+
+### 空指针
+> #define NULL 0已经在stdio.h声明了
+>
+> int *a=NULL;意味着a为地址0
+
+### 多维数组与指针
+**指针数组** ：int*pB[10];
+
+**数组指针**：int(*pB)[10]=B;
+
+必须理清楚的关系：
+```
+printf("%u\n", B);
+    printf("%u\n",*B);
+    printf("%d\n",**B);
+
+    printf("%u\n",B+1);
+    printf("%u\n",B+2);
+    printf("%u\n",*(B+1));
+    printf("%u\n",*B+1);
+
+    printf("%d\n",*(*(B+1)+2));
+```
+### 声明器
+> 标识符的声明与使用的形式统一。
+
+#### 优先级
+* 括号（）
+* 函数声明的（）与数组声明的[]优先级相同
+* 指针声明的*
+#### 函数指针
+> int (*p)(char\*)=print;
+#### 函数指针数组
+> void (*p[])()={h1,h2,h3...}
+#### 使用函数指针
+> (*p)("helloworld")
+> 或者p("helloworld")
+
+### 字符串与字符数组
+```
+char arr[]="helloworld";
+   puts(arr);
+   char *p=arr;
+   while(*p!='\0')
+   {
+    *p-=32;
+    p++;
+   }
+   puts(arr);
+```
+```
+ char arr[] = "dlrowolleh";
+    char *pHead = arr;
+    char *pTail = arr;
+    while (*pTail)
+        pTail++;
+    pTail--;
+
+    while (pHead <= pTail)
+    {
+        char temp = *pTail;
+        *pTail = *pHead;
+        *pHead = temp;
+        pHead++;
+        pTail--;
+    }
+```
+**恭喜你！指针结束了！**
+## 五.结构化语言
+### const应用
+> const 可读禁止修改。
+>
+> const在*左边，修饰的是指向的数据
+> 
+> const在*右边，修饰的是指针本身
+
+### 字符串处理函数
+* 头文件string.h
+* 字长
+```
+int mstrlen(char *p)
+{
+    if (p == NULL)
+        return 0;
+    size_t len = 0;
+    while (*p != '\0')
+    {
+        len++;
+        p++;
+    }
+    return len;
+}
+```
+* 拼接字符串
+> char* strcat (char*dest,const char* source);
+```
+char *mstrcat(char *dest, const char *src)
+{
+    if (dest == NULL)
+        return NULL;
+    if (src == NULL)
+        return dest;
+    char *ret = dest;
+    while (*dest != '\0')
+    {
+        dest++;
+    }
+    while (*src != '\0')
+    {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+     *dest = '\0';
+    return ret;
+}
+```
+
+* 复制(覆盖)字符串
+> char* strcpy (char*dest,const char* source);
+ ```
+char*strcpy(char*dest,const char*src)
+{
+    if (dest == NULL)
+        return NULL;
+    if (src == NULL)
+        return dest;
+    char *ret = dest;
+    while (*src != '\0')
+    {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    *dest = '\0';
+    return ret;
+}
+```
+* 一致字符串
+> int strcmp (const char*dest,const char* source);
+>
+> 两个字符串一致返回0,否则返回其他1,-1（比较ASCII值）
+```
+int mstrcmp(const char *str1, const char *str2)
+{
+    if (str1 == NULL && str2 == NULL)
+        return 0;
+    if (str1 != NULL && str2 == NULL)
+        return 1;
+    if (str1 == NULL && str2 != NULL)
+        return -1;
+    int ret = 0;
+    while (1)
+    {
+        if (*str1 != *str2)
+        {
+            if (*str1 > *str2)
+                ret = 1;
+            else
+                ret = -1;
+            break;
+        }
+        else
+        {
+            if(*str1=='\0'&&*str2=='\0')
+            {
+                break;
+            }
+            str1++;
+            str2++;
+        }
+    }
+    return ret;
+}
+```
+### 结构体——人员管理系统
+**我终于回来了！**
+#### 交互式程序
+
+函数 system——stdlib.h 参数为字符串(命令行命令)
+* cls 清除控制台之前显示过的字符
+* pause 暂停程序，按任意键继续执行
+* clear
+  
+#### 结构体-聚合数据
+```
+//新的数据类型：
+ struct
+    {
+        char name[20];
+        int gender;
+        double height;
+        double weight;
+    } ;
+```
+使用的话与下面一样：(结构别名)
+> int a;
+```
+ struct
+    {
+        char name[20];
+        int gender;
+        double height;
+        double weight;
+    } a;
+```
+调用数据
+> a.name;
+>
+> a.gender;
+>
+> a.height;
+>
+> a.weight;
+
+规范写法
+```
+//先定义
+struct unname
+{
+    成员；
+};
+//再初始化
+struct unname name={成员};
+struct unname name[]={{成员},{成员}，...};
+```
+嵌套结构体
+```
+struct contact
+    {
+        double height;
+        double weight;
+
+    }a;
+    struct persion
+    {
+        char name[20];
+        int gender;
+        struct contact b ;
+        
+    };
+```
+* 赋值是显然的
+* 调用: a.b.height
+  
+### 结构体指针
+```
+struct persion
+    {
+        char name[20];
+        int gender;
+        
+    };
+
+    struct persion a={"David",1};
+    struct persion*Pa=&a;
+    printf("%s %d",(*Pa).name,(*Pa).gender);
+```
+> (*Pa).name 等价 Pa->name
+### 联合 union
+类似与struct定义，恐怖的是成员地址统一！内存为最大数据类型的数据，struct使用的是内存对齐，而统一意味着内存的压缩，但也意味着改动时，数据很容易被覆盖，全部丢失。
+```
+struct str
+    {
+        short a;
+        int b;
+        long c;
+
+    } s;
+    union uni
+    {
+        short a;
+        int b;
+        long c;
+    } u;
+    printf("sizeof s %ld\n", sizeof(s));
+    printf("sizeof u %ld\n", sizeof(u));
+    printf("\n");
+    printf("&s.a %u \n", &s.a);
+    printf("&s.b %u \n", &s.b);
+    printf("&s.c %u \n", &s.c);
+    printf("&u.a %u \n", &u.a);
+    printf("&u.b %u \n", &u.b);
+    printf("&u.c %u \n", &u.c);
+```
+### 枚举类型
+> enum cloud{red,blue,yellow};
+> 默认使用012,也可diy
+## 六.C语言尾声
+### 标识符作用域
+
+> int n=3;
+* 编译器预留sizeof(int)字节的内存空间
+* 标识符n指代上上述空间
+* n为int类型，规范指代内存空间数据的使用
+
+tip:块作用域即{},自顶而下,避免重定义，
+> 全局声明：文件作用域
+> 带括号块作用域离开后失效
+
+### 预处理指令”#“
+修改源代码->编译器
+#define price 4
+> 实际上，代码文本化
+> 
+> #define 宏 替换体
+>
+> #define 宏（参数1.2...） 替换体
+>
+> 当成函数时小心运算优先级陷阱
+
+宏的命名满足标识符的规则
+应用：
+#define test(s) #s:"s"用于字符串连接
+#define test(m,n) m##n:mn连起来了
+
+当然，有一天你不想用这个宏了：#undef 宏名
+
+### 给数据类型起别名
+> key:typedef int int_32;(有作用域)
+
+> 它没有创建任何新类型，只是为某个已存在的类型增加一个别名
+
+### 条件编译
+> #if 常量表达式 #endif
+> 
+> #ifdef (define定义)#endif 未定义删除
+>
+> #ifndef (define定义)#endif 定义删除
+
+### 多文件编译
+* #include<文件名> 在编译器包含目录中搜索文件
+* #inclide"文件名"先在当前目录中搜索文件，在到编译器的包含目录中搜索文件
+
+### 代码模块化
+* persion.h:
+  
+   符号常量：#define
+   
+   结构定义：typedef struct{} A
+
+   函数声明
+
+   #progam once
+
+* persion.c:
+
+  persion.h
+  
+  函数定义
+
+* main.c:头文件，persion.h
+  
+### 储存类别
+* 自动变量（局部变量）
+  
+  自动变量创建->自动变量销毁 的过程叫生命周期或生命期
+
+  默认情况下为auto int n=100;
+
+  若是返回指针，为自动变量销毁的野指针。
+
+* 静态存储变量
+  
+  在程序启动时创建，直到程序结束时毁灭，默认初始化为0；
+
+  多个源文件中不允许出现同名全局变量，但可以用全局多文件连接extern int n，
+  也可以不共享链接，全局static int n=123,仅局限本文件文本。
+
+  块作用域内可加static int n,n会保留但仍然存在块作用域，可以利用指针使用。
+
+
+## 七.文件知识(略)
+### 如何保留程序中的数据？
+> 文件，用来保留历史数据的记忆。
+
+创建或打开文件fopen函数
+
+FILE* fopen（const char*filename,const char *mode）
+
+记录文件信息：指针
+
+文件路径（绝对或相对） 
+
+操作模式 “w" 写入 和 "r"读取
+
+ * 写入模式
+   
+   windows:\n \r,读取自动转换为\n
+
+   Linux:\n,读取为\n
+   ```
+   FILE*p=fopen("1.txt" ,"w");
+    if(p==NULL)
+    return -1;
+    int n=1;
+    fprintf(p,"%d\n",n);
+    fclose(p);
+   ```
+* 读取模式
+  
+  ```
+  FILE*p=fopen("1.txt" ,"r");
+    if(p==NULL)
+    return -1;
+    int n;
+    fgetc(p);
+    fscanf(p,"%d\n",n);
+    fclose(p);
+   ```
+
+ 扩充知识：EOF feof ferror fgets...
+
+## 八. 阿C，马上要说拜拜了
+### 位操作符
+二进制与十进制的相互转换。
+```
+void print2(int a)
+{
+    int er,qu;
+    int count=0;
+    int arr[8]={0};
+    while(a>0)
+    {
+        er=a%2;
+        qu=a/2;
+        a=qu;
+        arr[count]=er;
+        count++;
+    }
+    for(int i=8-1;i>=0;i--)
+    {
+        printf("%d",arr[i]);
+    }
+}
+```
+
+二进制的运算符：
+
+* a&b 同真反1,否则反0
+* a^b 不同为真，相同为假
+* a|b 全假为假，否则为真
+* ~a  颠倒黑白
+        
+### 动态内存管理
+一段不太规范的代码：
+```
+int n;
+    int arr[20];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",arr[i]);
+    }
+    int max=arr[0];
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>=max)
+        max=arr[i];
+    }
+```
+> void* malloc(size_t size);//括号内为需要申请的内存空间大小
+>
+> free的使用：free（申请的指针） 
+
+如果申请成功，返回值为成功申请的内存首地址，不然，为返回NULL
+
+### 内存泄漏
+**只调用malloc申请内存，不调用free释放，内存空间会一直保留！**
+
+### 主函数参数
+```
+int main(int argc,char**argv)
+{
+   return 0;
+}
+```
+argc:argument count:参数数量
+
+argv：argument value:参数值
