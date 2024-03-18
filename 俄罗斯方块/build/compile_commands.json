@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/david/c/俄罗斯方块/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/Tetris.dir/Terminal.cpp.o -c /home/david/c/俄罗斯方块/Terminal.cpp",
+  "file": "/home/david/c/俄罗斯方块/Terminal.cpp"
+},
+{
+  "directory": "/home/david/c/俄罗斯方块/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/Tetris.dir/main.cpp.o -c /home/david/c/俄罗斯方块/main.cpp",
+  "file": "/home/david/c/俄罗斯方块/main.cpp"
+},
+{
+  "directory": "/home/david/c/俄罗斯方块/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/Tetris.dir/utils.cpp.o -c /home/david/c/俄罗斯方块/utils.cpp",
+  "file": "/home/david/c/俄罗斯方块/utils.cpp"
+}
+]

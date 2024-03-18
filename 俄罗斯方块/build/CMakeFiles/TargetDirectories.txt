@@ -1,0 +1,3 @@
+/home/david/c/俄罗斯方块/build/CMakeFiles/Tetris.dir
+/home/david/c/俄罗斯方块/build/CMakeFiles/edit_cache.dir
+/home/david/c/俄罗斯方块/build/CMakeFiles/rebuild_cache.dir
