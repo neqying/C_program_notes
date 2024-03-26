@@ -153,6 +153,30 @@ Terminal.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/Terminal.cpp.s
 .PHONY : Terminal.cpp.s
 
+control.o: control.cpp.o
+.PHONY : control.o
+
+# target to build an object file
+control.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/control.cpp.o
+.PHONY : control.cpp.o
+
+control.i: control.cpp.i
+.PHONY : control.i
+
+# target to preprocess a source file
+control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/control.cpp.i
+.PHONY : control.cpp.i
+
+control.s: control.cpp.s
+.PHONY : control.s
+
+# target to generate assembly for a file
+control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/control.cpp.s
+.PHONY : control.cpp.s
+
 draw.o: draw.cpp.o
 .PHONY : draw.o
 
@@ -176,6 +200,30 @@ draw.s: draw.cpp.s
 draw.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/draw.cpp.s
 .PHONY : draw.cpp.s
+
+game.o: game.cpp.o
+.PHONY : game.o
+
+# target to build an object file
+game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/game.cpp.o
+.PHONY : game.cpp.o
+
+game.i: game.cpp.i
+.PHONY : game.i
+
+# target to preprocess a source file
+game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/game.cpp.i
+.PHONY : game.cpp.i
+
+game.s: game.cpp.s
+.PHONY : game.s
+
+# target to generate assembly for a file
+game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/game.cpp.s
+.PHONY : game.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -237,9 +285,15 @@ help:
 	@echo "... Terminal.o"
 	@echo "... Terminal.i"
 	@echo "... Terminal.s"
+	@echo "... control.o"
+	@echo "... control.i"
+	@echo "... control.s"
 	@echo "... draw.o"
 	@echo "... draw.i"
 	@echo "... draw.s"
+	@echo "... game.o"
+	@echo "... game.i"
+	@echo "... game.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

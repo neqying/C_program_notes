@@ -6,8 +6,18 @@
 },
 {
   "directory": "/home/david/c/俄罗斯方块/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/Tetris.dir/control.cpp.o -c /home/david/c/俄罗斯方块/control.cpp",
+  "file": "/home/david/c/俄罗斯方块/control.cpp"
+},
+{
+  "directory": "/home/david/c/俄罗斯方块/build",
   "command": "/usr/bin/g++   -g -o CMakeFiles/Tetris.dir/draw.cpp.o -c /home/david/c/俄罗斯方块/draw.cpp",
   "file": "/home/david/c/俄罗斯方块/draw.cpp"
+},
+{
+  "directory": "/home/david/c/俄罗斯方块/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/Tetris.dir/game.cpp.o -c /home/david/c/俄罗斯方块/game.cpp",
+  "file": "/home/david/c/俄罗斯方块/game.cpp"
 },
 {
   "directory": "/home/david/c/俄罗斯方块/build",

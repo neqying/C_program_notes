@@ -1,17 +1,15 @@
 #include "draw.h"
 #include <iostream>
 #include "Terminal.h"
+#include"utils.h"
 namespace dw
 {
-    inline int block2col(int b)
-    {
-        return 2 * b - 1;
-    }
+    
     void window(int top, int left, int width, int height, std::string title)
     {
         for (int r = 0; r < height; r++)
         {
-            tc::move_to(top + r, block2col(left));
+            tc::move_to(top + r, ut::b2c(left));
             for (int c = 0; c < width; c++)
 
             {
@@ -62,7 +60,7 @@ namespace dw
                 }
             }
             // title
-            tc::move_to(top, block2col(left) + (width * 2 - title.length()) / 2);
+            tc::move_to(top, ut::b2c(left) + (width * 2 - title.length()) / 2);
             std::cout << title;
         }
     }
