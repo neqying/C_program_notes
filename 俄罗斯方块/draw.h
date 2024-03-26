@@ -1,4 +1,5 @@
 #pragma once 
+#include<string>
 
 /*
     ui:layout
@@ -21,8 +22,6 @@ U+257x	╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿
 */
 namespace dw
 {
-    void window(int top,int left,int width,int height,std::string title)
-    {
-
-    }
+    void window(int top,int left,int width,int height,std::string title);
+    
 }

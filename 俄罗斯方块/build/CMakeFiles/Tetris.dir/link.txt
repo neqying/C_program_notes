@@ -1,1 +1,1 @@
-/usr/bin/g++ -g -rdynamic CMakeFiles/Tetris.dir/Terminal.cpp.o CMakeFiles/Tetris.dir/main.cpp.o CMakeFiles/Tetris.dir/utils.cpp.o -o Tetris 
+/usr/bin/g++ -g -rdynamic CMakeFiles/Tetris.dir/Terminal.cpp.o CMakeFiles/Tetris.dir/draw.cpp.o CMakeFiles/Tetris.dir/main.cpp.o CMakeFiles/Tetris.dir/utils.cpp.o -o Tetris 

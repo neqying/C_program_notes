@@ -154,4 +154,5 @@ CMakeFiles/Tetris.dir/main.cpp.o: /home/david/c/俄罗斯方块/main.cpp \
  /usr/include/c++/11/ratio /usr/include/c++/11/limits \
  /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
  /home/david/c/俄罗斯方块/Terminal.h \
- /home/david/c/俄罗斯方块/utils.h
+ /home/david/c/俄罗斯方块/utils.h \
+ /home/david/c/俄罗斯方块/draw.h

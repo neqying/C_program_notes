@@ -153,6 +153,30 @@ Terminal.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/Terminal.cpp.s
 .PHONY : Terminal.cpp.s
 
+draw.o: draw.cpp.o
+.PHONY : draw.o
+
+# target to build an object file
+draw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/draw.cpp.o
+.PHONY : draw.cpp.o
+
+draw.i: draw.cpp.i
+.PHONY : draw.i
+
+# target to preprocess a source file
+draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/draw.cpp.i
+.PHONY : draw.cpp.i
+
+draw.s: draw.cpp.s
+.PHONY : draw.s
+
+# target to generate assembly for a file
+draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tetris.dir/build.make CMakeFiles/Tetris.dir/draw.cpp.s
+.PHONY : draw.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -213,6 +237,9 @@ help:
 	@echo "... Terminal.o"
 	@echo "... Terminal.i"
 	@echo "... Terminal.s"
+	@echo "... draw.o"
+	@echo "... draw.i"
+	@echo "... draw.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
