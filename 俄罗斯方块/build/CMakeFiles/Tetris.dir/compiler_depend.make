@@ -564,7 +564,19 @@ CMakeFiles/Tetris.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/parse_numbers.h \
   ../Terminal.h \
   ../utils.h \
-  ../draw.h
+  ../draw.h \
+  /usr/include/termios.h \
+  /usr/include/x86_64-linux-gnu/bits/termios.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h
 
 CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
   /usr/include/stdc-predef.h \
@@ -620,6 +632,18 @@ CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
 
 ../utils.cpp:
 
+/usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-misc.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios.h:
+
+/usr/include/termios.h:
+
 /usr/include/c++/11/bits/parse_numbers.h:
 
 /usr/include/c++/11/limits:
@@ -649,6 +673,8 @@ CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:
 
 /usr/include/c++/11/cwctype:
 
@@ -792,6 +818,8 @@ CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
+/usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:
+
 /usr/include/c++/11/bits/unique_ptr.h:
 
 /usr/include/c++/11/ostream:
@@ -830,6 +858,8 @@ CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
 
 /usr/include/features.h:
 
+/usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:
+
 /usr/include/c++/11/ext/numeric_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
@@ -859,6 +889,8 @@ CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
 /usr/include/c++/11/bits/memoryfwd.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-struct.h:
 
 /usr/include/features-time64.h:
 
@@ -926,6 +958,8 @@ CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
+/usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:
+
 ../draw.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
@@ -935,6 +969,8 @@ CMakeFiles/Tetris.dir/utils.cpp.o: ../utils.cpp \
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-baud.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
